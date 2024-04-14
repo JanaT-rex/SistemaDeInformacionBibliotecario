@@ -16,7 +16,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class CUsuarios {
-    Clases.conexion_bd conexion = new Clases.conexion_bd();
+    ConexionDB conexion = new ConexionDB();
     public boolean iniciarSesion(JTextField usu, JPasswordField pwd) {
         Connection conn = null;
         PreparedStatement pst = null;
@@ -62,7 +62,7 @@ public class CUsuarios {
     
     //Agregar usuario
     public void agregarUsuario (JTextField txtNombre,JTextField txtContraseña, JComboBox cbTurno){
-     conexion_bd conex= new conexion_bd();
+     ConexionDB conex= new ConexionDB();
      String consulta="insert into usuarios (nombre_usu,contraseña,turno) values (?,?,?)";
      try{
      CallableStatement cs = conex.establecerConexion().prepareCall(consulta);
@@ -77,7 +77,7 @@ public class CUsuarios {
      
  }
   public void Mostrar(JTable tabla_usuarios){
-      Clases.conexion_bd tabla= new Clases.conexion_bd();
+      ConexionDB tabla= new ConexionDB();
         DefaultTableModel modelo= new DefaultTableModel();
         TableRowSorter< TableModel>OrdenaTabla= new TableRowSorter<TableModel>(modelo);
         tabla_usuarios.setRowSorter(OrdenaTabla);
@@ -110,7 +110,7 @@ public class CUsuarios {
     
     }
   public void BuscarUsuario(JTextField txtId, JTable tabla_usuarios){     //Buscar Usuario
-    Clases.conexion_bd conexion= new Clases.conexion_bd();
+    ConexionDB conexion= new ConexionDB();
     String consulta= "select id_usu, nombre_usu, contraseña,turno from usuarios where id_usu= ?";
     try{
         PreparedStatement ps= conexion.establecerConexion().prepareStatement(consulta);
@@ -147,7 +147,7 @@ public class CUsuarios {
   
   //Modificar usuario
   public void ModificarUsuario(JTextField txtId,JTextField txtNombre, JTextField txtContraseña, JComboBox cbTurno, JTable tabla_usuarios){
-    Clases.conexion_bd objetoConexion= new Clases.conexion_bd (); 
+    ConexionDB objetoConexion= new ConexionDB();
     String consulta= "UPDATE usuarios set nombre_usu=?, contraseña=?, turno=? where id_usu= ? ";
     try{
         PreparedStatement ps= objetoConexion.establecerConexion().prepareStatement(consulta);
@@ -188,7 +188,7 @@ public class CUsuarios {
                 }
         }
  public void mostrarUsuAgregado (JTable tabla_usuarios){
-        Clases.conexion_bd con= new Clases.conexion_bd();
+        ConexionDB con= new ConexionDB();
         DefaultTableModel modelo= new DefaultTableModel();
           TableRowSorter< TableModel>OrdenaTabla= new TableRowSorter<TableModel>(modelo);
         tabla_usuarios.setRowSorter(OrdenaTabla);
@@ -219,7 +219,7 @@ public class CUsuarios {
  
  //Eliminar usuario
      public void EliminarUsuario(JTextField txtId){
-    Clases.conexion_bd conexion= new Clases.conexion_bd();
+    ConexionDB conexion= new ConexionDB();
     String consulta= "delete from usuarios where id_usu=?";
     try{
         CallableStatement cs= conexion.establecerConexion().prepareCall(consulta);
@@ -235,7 +235,7 @@ public class CUsuarios {
     }
 }
      public void BuscarNombreUsuario(JTextField txtNombre, JTable tabla_usuarios){
-    Clases.conexion_bd conexion= new Clases.conexion_bd();
+    ConexionDB conexion= new ConexionDB();
     String consulta= "select id_usu, nombre_usu, contraseña,turno from usuarios where nombre_usu= ?";
     try{
         PreparedStatement ps= conexion.establecerConexion().prepareStatement(consulta);
@@ -272,7 +272,7 @@ public class CUsuarios {
               
 }
          public void BuscarTurnoUsuario(JComboBox cbTurno, JTable tabla_usuarios){
-    Clases.conexion_bd conexion= new Clases.conexion_bd();
+    ConexionDB conexion= new ConexionDB();
     String consulta= "SELECT id_usu, nombre_usu, contraseña, turno FROM usuarios WHERE turno = ? ";
     try{
         PreparedStatement ps= conexion.establecerConexion().prepareStatement(consulta);
