@@ -184,6 +184,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUsuariosActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;            public void mouseEntered(MouseEvent e) {&#xa;                btnUsuarios.setBackground(Color.decode(&quot;#000066&quot;)); // Nuevo color cuando el mouse pasa por encima&#xa;            }&#xa;            public void mouseExited(MouseEvent e) {&#xa;                btnUsuarios.setBackground(Color.decode(&quot;#202D94&quot;)); // Restaurar color de fondo predeterminado cuando el mouse sale&#xa;            }&#xa;        });"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnPrestamos">
               <Properties>
@@ -216,8 +219,12 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnPrestamosMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrestamosActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;            public void mouseEntered(MouseEvent e) {&#xa;                btnPrestamos.setBackground(Color.decode(&quot;#000066&quot;)); // Nuevo color cuando el mouse pasa por encima&#xa;            }&#xa;            public void mouseExited(MouseEvent e) {&#xa;                btnPrestamos.setBackground(Color.decode(&quot;#202D94&quot;)); // Restaurar color de fondo predeterminado cuando el mouse sale&#xa;            }&#xa;        });"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnLibros">
               <Properties>
@@ -251,6 +258,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLibrosActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnLibros.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;            public void mouseEntered(MouseEvent e) {&#xa;                btnLibros.setBackground(Color.decode(&quot;#000066&quot;)); // Nuevo color cuando el mouse pasa por encima&#xa;            }&#xa;            public void mouseExited(MouseEvent e) {&#xa;                btnLibros.setBackground(Color.decode(&quot;#202D94&quot;)); // Restaurar color de fondo predeterminado cuando el mouse sale&#xa;            }&#xa;        });"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnLectores">
               <Properties>
@@ -283,6 +293,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLectoresActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnLectores.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;            public void mouseEntered(MouseEvent e) {&#xa;                btnLectores.setBackground(Color.decode(&quot;#000066&quot;)); // Nuevo color cuando el mouse pasa por encima&#xa;            }&#xa;            public void mouseExited(MouseEvent e) {&#xa;                btnLectores.setBackground(Color.decode(&quot;#202D94&quot;)); // Restaurar color de fondo predeterminado cuando el mouse sale&#xa;            }&#xa;        });"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -361,6 +374,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrosActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnRegistros.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;            public void mouseEntered(MouseEvent e) {&#xa;                btnRegistros.setBackground(Color.decode(&quot;#000066&quot;)); // Nuevo color cuando el mouse pasa por encima&#xa;            }&#xa;            public void mouseExited(MouseEvent e) {&#xa;                btnRegistros.setBackground(Color.decode(&quot;#202D94&quot;)); // Restaurar color de fondo predeterminado cuando el mouse sale&#xa;            }&#xa;        });"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

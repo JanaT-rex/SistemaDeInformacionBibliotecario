@@ -4,6 +4,7 @@ package Clases;
 import com.toedter.calendar.JDateChooser;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,12 +30,12 @@ public class CActividades {
 
           //   JOptionPane.showMessageDialog(null, "Se agrego el prestamo a la base de datos" );
 } catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "No se puede ajustar la fecha: " + e.getMessage());
+   // JOptionPane.showMessageDialog(null, "No se puede ajustar la fecha: " + e.getMessage());
 }
             cs.execute();
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al ingresar actividad" + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ingresar actividad");
         } finally {
             con.cerrarConexion();
         }
@@ -52,12 +53,12 @@ public class CActividades {
             cs.setDate(3, fechaDevolucion);
 
 } catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "No se puede ajustar la fecha: " + e.getMessage());
+ //   JOptionPane.showMessageDialog(null, "No se puede ajustar la fecha: " + e.getMessage());
 }
             cs.execute();
              //   JOptionPane.showMessageDialog(null, "Se agrego la devolucion a la base de datos" );
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al ingresar actividad" + e.toString());
+      //     JOptionPane.showMessageDialog(null, "Error al agregarr el prestamo a la tabla de registros");
         } finally {
             con.cerrarConexion();
         }
@@ -163,6 +164,71 @@ public class CActividades {
            tablacx.cerrarConexion();
        }
     }
-           //CRUD PRESTAMOS          
+ public void eliminarRegistroPTabla(JTable tabla_info) {
+    Clases.conexion_bd con = new Clases.conexion_bd();
+    String consulta = "DELETE FROM actividadprestamo WHERE id_APrestamo = ?";
+    int fila = tabla_info.getSelectedRow();
+    
+    int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de eliminar el registro?", "Confirmar operación", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+    if (fila >= 0) {
+        try {
+            int idPrestamo = Integer.parseInt((String) tabla_info.getValueAt(fila, 0));
+            CallableStatement cs = con.establecerConexion().prepareCall(consulta);
+            cs.setInt(1, idPrestamo);
+            int filasAfectadas = cs.executeUpdate();
+            if (filasAfectadas > 0) {
+                JOptionPane.showMessageDialog(null, "Se eliminó el registro correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró el registro con ID: " + idPrestamo);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener el ID del registro");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar el registro");
+        } finally {
+            con.cerrarConexion(); // Cerrar la conexión después de su uso
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "No se seleccionó ninguna fila para eliminar");
+    } 
+}else {
+           JOptionPane.showMessageDialog(null, "Operación abortada"); 
+            }
+}
  
+ public void eliminarRegistroDTabla(JTable tabla_info) {
+    Clases.conexion_bd con = new Clases.conexion_bd();
+    String consulta = "DELETE FROM actividaddevolucion WHERE id_ADevolucion = ?";
+    int fila = tabla_info.getSelectedRow();
+    
+    int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de eliminar el registro?", "Confirmar operación", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+    if (fila >= 0) {
+        try {
+            int idPrestamo = Integer.parseInt((String) tabla_info.getValueAt(fila, 0));
+            CallableStatement cs = con.establecerConexion().prepareCall(consulta);
+            cs.setInt(1, idPrestamo);
+            int filasAfectadas = cs.executeUpdate();
+            if (filasAfectadas > 0) {
+                JOptionPane.showMessageDialog(null, "Se eliminó el registro correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró el registro con ID: " + idPrestamo);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener el ID del registro");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar el registro");
+        } finally {
+            con.cerrarConexion(); // Cerrar la conexión después de su uso
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "No se seleccionó ninguna fila para eliminar");
+    } 
+}else {
+           JOptionPane.showMessageDialog(null, "Operación abortada"); 
+            }
+}
 }

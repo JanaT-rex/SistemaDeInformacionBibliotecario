@@ -2,7 +2,6 @@
 package Clases;
 
 import Interfaz.CRUD_prestamos;
-import Interfaz.editar_prestamo;
 import com.toedter.calendar.JDateChooser;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -15,6 +14,8 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -77,7 +78,7 @@ public class CPrestamos {
       }
         tabla_info.setModel(modelo);
        }catch (Exception e){
-           JOptionPane.showMessageDialog(null, "Error al mostrar prestamo, error; " +e.toString());
+           JOptionPane.showMessageDialog(null, "Error al mostrar los prestamos");
        }
         finally {
            tablacx.cerrarConexion();
@@ -123,7 +124,7 @@ public class CPrestamos {
         cs.execute();
         JOptionPane.showMessageDialog(null, "Se actualizó el registro correctamente");
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error al actualizar el registro, error: " + e.toString());
+        JOptionPane.showMessageDialog(null, "Error al actualizar el registro");
     } finally {
         objetoConexion.cerrarConexion();
     }
@@ -138,7 +139,7 @@ public void EliminarPrestamo(JTextField txtId){
         JOptionPane.showMessageDialog(null, "Se elimino el registro correctamente");
         
     }catch (Exception e){
-         JOptionPane.showMessageDialog(null, "Error al eliminar el registro, error: " +e.toString()); 
+         JOptionPane.showMessageDialog(null, "Error al eliminar el registro"); 
     }
     finally{
         conexion.cerrarConexion();
@@ -180,7 +181,7 @@ public void EliminarPrestamo(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontró el lector con el ID proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el lector");
         } finally {
             conexion.cerrarConexion();
         }
@@ -222,7 +223,7 @@ public void EliminarPrestamo(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontró el libro con el ID proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el libro, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el libro");
         } finally {
             conexion.cerrarConexion();
         }
@@ -280,7 +281,7 @@ public void EliminarPrestamo(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontró el prestamo con el ID proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo");
         } finally {
             conexion.cerrarConexion();
         }
@@ -289,7 +290,7 @@ public void EliminarPrestamo(JTextField txtId){
   
 public void Devolucion(JTextField txtId, JTextField txtIdLibro) {
     Clases.conexion_bd conexion = new Clases.conexion_bd();
-    String ejemplar = "UPDATE libros SET cantidad = cantidad+1 WHERE id_lib = ?;";
+    String ejemplar = "UPDATE libros SET ejemplares = ejemplares+1 WHERE id_lib = ?;";
     String consulta = "DELETE FROM prestamos WHERE id_prestamo=?";
 
     int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de realizar la devolución del libro?", "Confirmar devolución", JOptionPane.YES_NO_OPTION);
@@ -315,58 +316,7 @@ public void Devolucion(JTextField txtId, JTextField txtIdLibro) {
 }
 
 
-    public void Prestar(JTextField txtAlumno, JTextField txtIdLibro, JDateChooser prestado, JDateChooser devolver) {
-    conexion_bd conex = new conexion_bd();
-    String consulta = "INSERT INTO prestamos (id_lector, id_lib, fecha_prestamo, fecha_devolucion) VALUES (?, ?, ?, ?)";
-    String disponible = "UPDATE libros SET ejemplares = ejemplares -1 WHERE id_lib = ? AND ejemplares > 0";
-
-    try {
-        Connection conn = conex.establecerConexion();
-        conn.setAutoCommit(false);
-
-        // Verificar la cantidad de libros disponibles
-        PreparedStatement psVerificarCantidad = conn.prepareStatement("SELECT ejemplares FROM libros WHERE id_lib = ? AND ejemplares > 0");
-        psVerificarCantidad.setInt(1, Integer.parseInt(txtIdLibro.getText()));
-        ResultSet rs = psVerificarCantidad.executeQuery();
-
-        if (rs.next()) {
-            PreparedStatement psPrestamo = conn.prepareStatement(consulta);
-            psPrestamo.setString(1, txtAlumno.getText());
-            psPrestamo.setString(2, txtIdLibro.getText());
-
-            java.sql.Date fechaPrestamo = new java.sql.Date(prestado.getDate().getTime());
-            psPrestamo.setDate(3, fechaPrestamo);
-
-            java.sql.Date fechaDevolucion = new java.sql.Date(devolver.getDate().getTime());
-            psPrestamo.setDate(4, fechaDevolucion);
-            int filasInsertadas = psPrestamo.executeUpdate();
-
-            // Si se agregó el préstamo correctamente, actualizar la cantidad de libros prestados
-            if (filasInsertadas > 0) {
-                PreparedStatement psEjemplares = conn.prepareStatement(disponible);
-                psEjemplares.setInt(1, Integer.parseInt(txtIdLibro.getText()));
-
-                int actualizarCantidad = psEjemplares.executeUpdate();
-
-                if (actualizarCantidad > 0) {
-                    conn.commit(); // Confirmar la transacción
-                    JOptionPane.showMessageDialog(null, "El libro se prestó exitosamente");
-                } else {
-                    JOptionPane.showMessageDialog(null, "No hay existencias disponibles para este libro");
-                    conn.rollback(); // Deshacer la transacción
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "No fue posible prestar el libro solicitado");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "No hay existencias disponibles para este libro");
-        }
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error al realizar el préstamo: " + e.getMessage());
-    } finally {
-        conex.cerrarConexion();
-    }
-}
+    
      public void BuscarLibroPrestado(JTextField txtIdLibro, JTable tabla_prestamos){
     Clases.conexion_bd conexion= new Clases.conexion_bd();
     String consulta= "select prestamos.id_prestamo, prestamos.id_lector, lectores.nombre, lectores.apellido, lectores.grado, lectores.grupo, lectores.turno, lectores.asignacion, prestamos.id_lib, libros.titulo, prestamos.fecha_prestamo, prestamos.fecha_devolucion from prestamos \n" +
@@ -416,11 +366,12 @@ public void Devolucion(JTextField txtId, JTextField txtIdLibro) {
                    JOptionPane.showMessageDialog(null, "No se encontró el prestamo con el ID proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo");
         } finally {
             conexion.cerrarConexion();
-        }
-              
+            
+        } 
+
 }
        public void BuscarLectorDelPrestamo(JTextField txtAlumno, JTable tabla_prestamos){
     Clases.conexion_bd conexion= new Clases.conexion_bd();
@@ -471,7 +422,7 @@ public void Devolucion(JTextField txtId, JTextField txtIdLibro) {
                    JOptionPane.showMessageDialog(null, "No se encontró el prestamo con el ID proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo");
         } finally {
             conexion.cerrarConexion();
         }
@@ -529,7 +480,7 @@ public void Devolucion(JTextField txtId, JTextField txtIdLibro) {
                    JOptionPane.showMessageDialog(null, "No hay prestamos con la fecha indicada");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo");
         } finally {
             conexion.cerrarConexion();
         }
@@ -587,7 +538,7 @@ public void Devolucion(JTextField txtId, JTextField txtIdLibro) {
                    JOptionPane.showMessageDialog(null, "No hay devoluciones con la fecha indicada");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el prestamo");
         } finally {
             conexion.cerrarConexion();
         }
@@ -606,6 +557,9 @@ public void eliminarPrestamoTabla(JTable tabla_info) {
     String consulta = "DELETE FROM prestamos WHERE id_prestamo = ?";
     int fila = tabla_info.getSelectedRow();
     
+    int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de eliminar el registro?", "Confirmar operación", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
     if (fila >= 0) {
         try {
             int idPrestamo = Integer.parseInt((String) tabla_info.getValueAt(fila, 0));
@@ -620,108 +574,130 @@ public void eliminarPrestamoTabla(JTable tabla_info) {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Error al obtener el ID del registro");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar el registro: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al eliminar el registro");
         } finally {
             con.cerrarConexion(); // Cerrar la conexión después de su uso
         }
     } else {
         JOptionPane.showMessageDialog(null, "No se seleccionó ninguna fila para eliminar");
-    }
+    } 
+}else {
+           JOptionPane.showMessageDialog(null, "Operación abortada"); 
+            }
 }
-/**public void editarPrestamoTabla(JTable tabla_info){
-    Clases.conexion_bd con = new Clases.conexion_bd();
+
+public void editarPrestamoTabla (JTable tabla_info) {
+      Clases.conexion_bd con = new Clases.conexion_bd();
     String sql = "UPDATE prestamos SET id_lector=?, id_lib=?, fecha_prestamo=?, fecha_devolucion=? WHERE id_prestamo=?";
+    String actividad = "UPDATE actividadprestamo SET id_lector=?, id_lib=?, fecha_prestamo=? WHERE id_APrestamo=?";
+
     int fila = tabla_info.getSelectedRow();
-     String Prestamo= (tabla_info.getValueAt(fila,0).toString());
-                         String Lector= (tabla_info.getValueAt(fila,1).toString());
-                           String Libro= (tabla_info.getValueAt(fila,8).toString());
-             String FechaPrestamo= (tabla_info.getValueAt(fila, 10).toString());
-            String FechaDevolucion= (tabla_info.getValueAt(fila, 11).toString());
-   CallableStatement cs = null;
-if (fila != -1) {
+    if (fila >=0) {
     try {
-        cs = con.establecerConexion().prepareCall(sql);
+        String Prestamo = tabla_info.getValueAt(fila, 0).toString();
+        String Lector = tabla_info.getValueAt(fila, 1).toString();
+        String Libro = tabla_info.getValueAt(fila, 8).toString();
+        String FechaPrestamo = tabla_info.getValueAt(fila, 10).toString();
+        String FechaDevolucion = tabla_info.getValueAt(fila, 11).toString();
+
+       CallableStatement  cs = con.establecerConexion().prepareCall(sql);
+       CallableStatement  csAct = con.establecerConexion().prepareCall(actividad);
+       
         String idLector = JOptionPane.showInputDialog(null, "Id del Lector: ", "Lector del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, Lector).toString();
         String idLibro = JOptionPane.showInputDialog(null, "Id del Libro: ", "Libro del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, Libro).toString();
-        String fechaPrestamo = JOptionPane.showInputDialog(null, "Fecha de prestamo: ", "Fecha de prestamo del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, FechaPrestamo).toString();
+    
+        String fechaPrestamo = JOptionPane.showInputDialog(null, "Ingrese la fecha de prestamo:", "Fecha de prestamo del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, FechaPrestamo).toString();
+        
         String fechaDevolucion = JOptionPane.showInputDialog(null, "Fecha de devolucion: ", "Fecha de devolucion del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, FechaDevolucion).toString();
+      
+       
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date FechaP = sdf.parse(fechaPrestamo);
+        Date FechaD = sdf.parse(fechaDevolucion);
+        SimpleDateFormat FormatoSalida = new SimpleDateFormat("yyyy/MM/dd");
+        String fechaNuevaP = FormatoSalida.format(FechaP);
+        String fechaNuevaD = FormatoSalida.format(FechaD);
+
+        cs.setString(1, idLector);
+    
+       cs.setString(2, idLibro);
+        cs.setString(3, fechaNuevaP);
+        cs.setString(4, fechaNuevaD);    
+        cs.setString(5, Prestamo);
+
+          csAct.setString(1, idLector);
+          csAct.setString(2, idLibro);
+          csAct.setString(3, fechaNuevaP);
+          csAct.setString(4, Prestamo);
+          
+           cs.execute();
+          csAct.execute();
+
         JOptionPane.showMessageDialog(null, "Se actualizaron los datos del prestamo " + Prestamo + " de manera exitosa.");
         
-        // Establecer los valores en el CallableStatement
-        cs.setString(1, idLector);
-        cs.setString(2, idLibro);
-        cs.setString(3, fechaPrestamo);
-        cs.setString(4, fechaDevolucion);
-        cs.setString(5, Prestamo);
-        
-        // Ejecutar la consulta
-        cs.execute();
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "No se modifico el prestamo "+ e.toString());
-    }
-    finally{
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "No se modifico el prestamo");
+    } catch (Exception e) {  
+           //   JOptionPane.showMessageDialog(null, "No se  pudo ajustar la fecha");
+          }  
+    finally {
         con.cerrarConexion();
-        }
-}
-
-    }**/
-public void editarPrestamoTabla(JTable tabla_info) {
-    Clases.conexion_bd con = new Clases.conexion_bd();
-    String sql = "UPDATE prestamos SET id_lector=?, id_lib=?, fecha_prestamo=?, fecha_devolucion=? WHERE id_prestamo=?";
-    int fila = tabla_info.getSelectedRow();
-    
-    String Prestamo = (tabla_info.getValueAt(fila, 0).toString());
-    String Lector = (tabla_info.getValueAt(fila, 1).toString());
-    String Libro = (tabla_info.getValueAt(fila, 8).toString());
-    
-    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-    String FechaPrestamo = (tabla_info.getValueAt(fila, 10).toString());
-    String FechaDevolucion = (tabla_info.getValueAt(fila, 11).toString());
-    
-    CallableStatement cs = null;
-    if (fila != -1) {
-        try {
-            cs = con.establecerConexion().prepareCall(sql);
-            String idLector = JOptionPane.showInputDialog(null, "Id del Lector: ", "Lector del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, Lector).toString();
-            String idLibro = JOptionPane.showInputDialog(null, "Id del Libro: ", "Libro del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, Libro).toString();
-    String fechaPrestamo = JOptionPane.showInputDialog(null, "Ingrese la fecha de prestamo (YYYY-MM-DD):", "Fecha de prestamo del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, FechaPrestamo).toString();
-    String fechaDevolucion = JOptionPane.showInputDialog(null, "Fecha de devolucion: ", "Fecha de devolucion del prestamo " + Prestamo, JOptionPane.PLAIN_MESSAGE, null, null, FechaDevolucion).toString();
-    
-
-
-       // Establecer los valores en el CallableStatement
-            cs.setString(1, idLector);
-            cs.setString(2, idLibro);
-            
-           try {
-    if (fechaPrestamo != null && fechaDevolucion != null) {
-   //     java.sql.Date fechaPrestamoSQL = new java.sql.Date(fechaPrestamo.getTime());
- //      java.sql.Date fechaDevolucionSQL = new java.sql.Date(fechaDevolucion.getTime());
-
-  //      cs.setDate(3, fechaPrestamoSQL);
-  //      cs.setDate(4, fechaDevolucionSQL);
+    }
     } else {
-        JOptionPane.showMessageDialog(null, "Las fechas no pueden ser nulas");
+        JOptionPane.showMessageDialog(null, "Seleccione una fila");
+        return;
     }
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "No se puede agregar la fecha" + e.toString());
 }
+ public void Prestar(JTextField txtAlumno, JTextField txtIdLibro, JDateChooser prestado, JDateChooser devolver) {
+    conexion_bd conex = new conexion_bd();
+    String consulta = "INSERT INTO prestamos (id_lector, id_lib, fecha_prestamo, fecha_devolucion) VALUES (?, ?, ?, ?)";
+    String disponible = "UPDATE libros SET ejemplares = ejemplares -1 WHERE id_lib = ? AND ejemplares > 0";
 
-            
-            cs.setString(5, Prestamo);
-            
-            cs.execute();
-            JOptionPane.showMessageDialog(null, "Se actualizaron los datos del prestamo " + Prestamo + " de manera exitosa.");
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "No se modifico el prestamo " + e.toString());
-}
-     finally {
-            con.cerrarConexion();
+    try {
+        Connection conn = conex.establecerConexion();
+        conn.setAutoCommit(false);
+
+        // Verificar la cantidad de libros disponibles
+        PreparedStatement psVerificarCantidad = conn.prepareStatement("SELECT ejemplares FROM libros WHERE id_lib = ? AND ejemplares > 0");
+        psVerificarCantidad.setInt(1, Integer.parseInt(txtIdLibro.getText()));
+        ResultSet rs = psVerificarCantidad.executeQuery();
+
+        if (rs.next()) {
+            PreparedStatement psPrestamo = conn.prepareStatement(consulta);
+            psPrestamo.setString(1, txtAlumno.getText());
+            psPrestamo.setString(2, txtIdLibro.getText());
+
+            java.sql.Date fechaPrestamo = new java.sql.Date(prestado.getDate().getTime());
+            psPrestamo.setDate(3, fechaPrestamo);
+
+            java.sql.Date fechaDevolucion = new java.sql.Date(devolver.getDate().getTime());
+            psPrestamo.setDate(4, fechaDevolucion);
+            int filasInsertadas = psPrestamo.executeUpdate();
+
+            // Si se agregó el préstamo correctamente, actualizar la cantidad de libros prestados
+            if (filasInsertadas > 0) {
+                PreparedStatement psEjemplares = conn.prepareStatement(disponible);
+                psEjemplares.setInt(1, Integer.parseInt(txtIdLibro.getText()));
+
+                int actualizarCantidad = psEjemplares.executeUpdate();
+
+                if (actualizarCantidad > 0) {
+                    conn.commit(); // Confirmar la transacción
+                    JOptionPane.showMessageDialog(null, "El libro se prestó exitosamente");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No hay existencias disponibles para este libro");
+                    conn.rollback(); // Deshacer la transacción
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No fue posible prestar el libro solicitado");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay existencias disponibles para este libro");
         }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al realizar el préstamo");
+    } finally {
+        conex.cerrarConexion();
     }
 }
-
-}
-
-        
-
+}   

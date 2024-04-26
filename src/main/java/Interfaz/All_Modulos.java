@@ -3,8 +3,14 @@ package Interfaz;
 
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
@@ -26,21 +32,18 @@ int dia = now.getDayOfMonth();
 int month = now.getMonthValue();
 String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
 String[] semana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
-fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] + " de " + year);
-
-        
-
+fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] + " de " + year);       
 }
   
       private void InitStyles() {
   FlatCyanLightIJTheme.setup();
     }
-     
+    
+
    
 
     @SuppressWarnings("unchecked")
    
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -91,6 +94,14 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
                 btnUsuariosActionPerformed(evt);
             }
         });
+        btnUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                btnUsuarios.setBackground(Color.decode("#000066")); // Nuevo color cuando el mouse pasa por encima
+            }
+            public void mouseExited(MouseEvent e) {
+                btnUsuarios.setBackground(Color.decode("#202D94")); // Restaurar color de fondo predeterminado cuando el mouse sale
+            }
+        });
 
         btnPrestamos.setBackground(new java.awt.Color(32, 45, 148));
         btnPrestamos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -105,9 +116,22 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
         btnPrestamos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPrestamos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnPrestamos.setPreferredSize(new java.awt.Dimension(240, 90));
+        btnPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPrestamosMouseClicked(evt);
+            }
+        });
         btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrestamosActionPerformed(evt);
+            }
+        });
+        btnPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                btnPrestamos.setBackground(Color.decode("#000066")); // Nuevo color cuando el mouse pasa por encima
+            }
+            public void mouseExited(MouseEvent e) {
+                btnPrestamos.setBackground(Color.decode("#202D94")); // Restaurar color de fondo predeterminado cuando el mouse sale
             }
         });
 
@@ -128,6 +152,14 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
                 btnLibrosActionPerformed(evt);
             }
         });
+        btnLibros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                btnLibros.setBackground(Color.decode("#000066")); // Nuevo color cuando el mouse pasa por encima
+            }
+            public void mouseExited(MouseEvent e) {
+                btnLibros.setBackground(Color.decode("#202D94")); // Restaurar color de fondo predeterminado cuando el mouse sale
+            }
+        });
 
         btnLectores.setBackground(new java.awt.Color(32, 45, 148));
         btnLectores.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -143,6 +175,14 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
         btnLectores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLectoresActionPerformed(evt);
+            }
+        });
+        btnLectores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                btnLectores.setBackground(Color.decode("#000066")); // Nuevo color cuando el mouse pasa por encima
+            }
+            public void mouseExited(MouseEvent e) {
+                btnLectores.setBackground(Color.decode("#202D94")); // Restaurar color de fondo predeterminado cuando el mouse sale
             }
         });
 
@@ -183,6 +223,14 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
         btnRegistros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrosActionPerformed(evt);
+            }
+        });
+        btnRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                btnRegistros.setBackground(Color.decode("#000066")); // Nuevo color cuando el mouse pasa por encima
+            }
+            public void mouseExited(MouseEvent e) {
+                btnRegistros.setBackground(Color.decode("#202D94")); // Restaurar color de fondo predeterminado cuando el mouse sale
             }
         });
 
@@ -370,14 +418,28 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        Interfaz.P_usuarios P= new Interfaz.P_usuarios();
-        P.setSize(738, 460);
-        P.setLocation(0,0);
-        
-       ventanas.removeAll();
-        ventanas.add(P, BorderLayout.CENTER);
-        ventanas.revalidate();
-        ventanas.repaint();
+  Clases.conexion_bd con = new Clases.conexion_bd();
+    String consulta = "SELECT * FROM usuarios WHERE contraseña = ?";
+       try {
+        String pass = JOptionPane.showInputDialog(null, "Introduzca la contraseña");
+        PreparedStatement pst = con.establecerConexion().prepareStatement(consulta);
+        pst.setString(1, pass);    
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {  
+    Interfaz.P_usuarios P = new Interfaz.P_usuarios();
+    P.setSize(738, 460);
+    P.setLocation(0, 0);   
+    ventanas.removeAll();
+    ventanas.add(P, BorderLayout.CENTER);
+    ventanas.revalidate();
+    ventanas.repaint();
+        } else {
+            JOptionPane.showMessageDialog(null, "No es posible acceder.");
+        }
+} catch (SQLException e) {
+
+    }
+
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnLectoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLectoresActionPerformed
@@ -422,6 +484,16 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
     }//GEN-LAST:event_btnLibrosActionPerformed
 
     private void btnRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrosActionPerformed
+      Clases.conexion_bd con = new Clases.conexion_bd();
+    String consulta = "SELECT * FROM usuarios WHERE contraseña = ?";
+       try {
+        String pass = JOptionPane.showInputDialog(null, "Introduzca la contraseña");
+        PreparedStatement pst = con.establecerConexion().prepareStatement(consulta);
+        pst.setString(1, pass); 
+        
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {  
+     //   JOptionPane.showMessageDialog(null, "Contraseña correcta");
         Interfaz.P_registros L= new Interfaz.P_registros();
         L.setSize(738, 460);
         L.setLocation(0,0);
@@ -430,14 +502,25 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
         ventanas.add(L, BorderLayout.CENTER);
         ventanas.revalidate();
         ventanas.repaint();
+           } else {
+          
+            JOptionPane.showMessageDialog(null, "No es posible acceder.");
+        }
+} catch (SQLException e) {
+ 
+    }
+
+
     }//GEN-LAST:event_btnRegistrosActionPerformed
+
+    private void btnPrestamosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamosMouseClicked
+
+        
+            
+    }//GEN-LAST:event_btnPrestamosMouseClicked
 
     public static void main(String args[]) {                        
     FlatCyanLightIJTheme.setup();
-    
-      
-      
-      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new All_Modulos().setVisible(true);
@@ -467,5 +550,6 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
     private javax.swing.JPanel ventanas;
     // End of variables declaration//GEN-END:variables
 
+    
  
 }

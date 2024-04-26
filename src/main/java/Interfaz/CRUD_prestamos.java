@@ -40,6 +40,7 @@ public class CRUD_prestamos extends javax.swing.JPanel {
         eliminar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar .png"))); // NOI18N
         eliminar.setText("Eliminar");
+        eliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eliminar.setPreferredSize(new java.awt.Dimension(210, 32));
         eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +52,7 @@ public class CRUD_prestamos extends javax.swing.JPanel {
         modificar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
         modificar.setText("Modificar");
+        modificar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         modificar.setPreferredSize(new java.awt.Dimension(210, 32));
         modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -92,17 +94,17 @@ public class CRUD_prestamos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(acciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(contentLayout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
-                .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addGap(136, 136, 136)
+                .addComponent(eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(76, 76, 76)
+                .addComponent(modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(106, 106, 106))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(acciones, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(acciones, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
@@ -129,11 +131,13 @@ public class CRUD_prestamos extends javax.swing.JPanel {
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
      Clases.CPrestamos DT= new Clases.CPrestamos();
      DT.eliminarPrestamoTabla(tabla_info);
+     DT.mostrar(tabla_info);
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
      Clases.CPrestamos EP= new Clases.CPrestamos();
       EP.editarPrestamoTabla(tabla_info);
+      EP.mostrar(tabla_info);
     }//GEN-LAST:event_modificarActionPerformed
 
 

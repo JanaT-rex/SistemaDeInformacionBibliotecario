@@ -29,7 +29,7 @@ public class Clibros {
      cs.execute();
            JOptionPane.showMessageDialog(null, "Se guardo el libro correctamente");           
      }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar, error:" +e.toString());            
+            JOptionPane.showMessageDialog(null, "Error al guardar.");            
      }
      
  }
@@ -65,7 +65,7 @@ public class Clibros {
        }
           tabla_libros.setModel(modelo);
        }catch (Exception e){
-           JOptionPane.showMessageDialog(null, "Error al mostrar libros, error; " +e.toString());
+           JOptionPane.showMessageDialog(null, "Error al mostrar libros");
        }
         finally {
            tablacx.cerrarConexion();
@@ -102,7 +102,7 @@ public void ModificarLibro(JTextField txtId,JTextField txtTitulo, JTextField txt
      cs.execute();
      JOptionPane.showMessageDialog(null, "Se actualizo el registro correctamente");
     }catch (Exception e){
-           JOptionPane.showMessageDialog(null, "Error al actualizar el registro, error: " +e.toString());
+           JOptionPane.showMessageDialog(null, "Error al actualizar los datos del libro" );
     }
     finally{
         objetoConexion.cerrarConexion();
@@ -118,7 +118,7 @@ public void EliminarLibro(JTextField txtId){
         JOptionPane.showMessageDialog(null, "Se elimino el registro correctamente");
         
     }catch (Exception e){
-         JOptionPane.showMessageDialog(null, "Error al eliminar el registro, error: " +e.toString()); 
+         JOptionPane.showMessageDialog(null, "Error al eliminar el registro"); 
     }
     finally{
         conexion.cerrarConexion();
@@ -161,7 +161,7 @@ public void EliminarLibro(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontró el libro con el Id proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el libro, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el libro, error");
         } finally {
             conexion.cerrarConexion();
         }
@@ -205,7 +205,7 @@ public void EliminarLibro(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontró el libro con el titulo proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el libro, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el libro");
         } finally {
             conexion.cerrarConexion();
         }
@@ -249,7 +249,7 @@ public void EliminarLibro(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontró el libro con el nombre del autor proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el libro, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el libro");
         } finally {
             conexion.cerrarConexion();
         }
@@ -293,7 +293,7 @@ public void EliminarLibro(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontró el libro con la editorial proporcionada");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el lector");
         } finally {
             conexion.cerrarConexion();
         }
@@ -339,7 +339,7 @@ public void EliminarLibro(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontraron libros");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar la categoria, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar la categoria");
         } finally {
             conexion.cerrarConexion();
         }
@@ -394,7 +394,7 @@ public void EliminarLibro(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontraron libros con la cantidad indicada");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el libro, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el libro");
         } finally {
             conexion.cerrarConexion();
         }
@@ -437,7 +437,7 @@ public void EliminarLibro(JTextField txtId){
                    JOptionPane.showMessageDialog(null, "No se encontraron libros con la cantidad indicada");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el libro, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el libro");
         } finally {
             conexion.cerrarConexion();
         }

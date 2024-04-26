@@ -1,4 +1,5 @@
 package Clases;
+import java.awt.BorderLayout;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,53 +17,46 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class CUsuarios {
-    Clases.conexion_bd conexion = new Clases.conexion_bd();
     public boolean iniciarSesion(JTextField usu, JPasswordField pwd) {
-        Connection conn = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-        try {
-            conn = conexion.establecerConexion();
-            String user = usu.getText();
-            String pass = String.valueOf(pwd.getPassword());
-            String query = "SELECT * FROM usuarios WHERE nombre_usu = ? AND contraseña = ?";          
-            pst = conn.prepareStatement(query);
-            pst.setString(1, user);
-            pst.setString(2, pass);
-            rs = pst.executeQuery();
-            return rs.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-    
+ Clases.conexion_bd conn = new Clases.conexion_bd();
+ String query = "SELECT * FROM usuarios WHERE nombre_usu = ? AND contraseña = ?";
+ 
+try {
+ PreparedStatement ps = conn.establecerConexion().prepareStatement(query);
+ String usuario = usu.getText();
+ String pass = String.valueOf(pwd.getPassword());
+ ps.setString(1, usuario);
+ ps.setString(2, pass);
+ ResultSet rs = ps.executeQuery();
+ 
+if (rs.next()) {
+ //Si se encuentra un usuario con las credenciales proporcionadas
+ //JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
+ return true;
+ } else {
+ //Si no se encuentra ningún usuario con las credenciales proporcionadas
+ //JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+ return false;
+ }
+ } catch (SQLException e) {
+ //Manejo de excepciones
+ JOptionPane.showMessageDialog(null, "Error al iniciar sesión: " + e.getMessage());
+ return false;
+ } finally {
+ //Cerrar la conexión
+ conn.cerrarConexion();
+ }
+}
+public void limpiarLogin (JTextField usu, JPasswordField pwd){
+    usu.setText(" ");
+   pwd.setText("");
+
+}
+   
     
     //Agregar usuario
     public void agregarUsuario (JTextField txtNombre,JTextField txtContraseña, JComboBox cbTurno){
-     conexion_bd conex= new conexion_bd();
+     Clases.conexion_bd conex= new Clases.conexion_bd();
      String consulta="insert into usuarios (nombre_usu,contraseña,turno) values (?,?,?)";
      try{
      CallableStatement cs = conex.establecerConexion().prepareCall(consulta);
@@ -316,5 +310,31 @@ public class CUsuarios {
        txtContraseña.setText("");
       cbTurno.setSelectedItem(null);
     }
-         }
+          
+            
+    public void accederInfo() {
+    Clases.conexion_bd con = new Clases.conexion_bd();
+    String consulta = "SELECT * FROM usuarios WHERE contraseña = ?";
+    
+    try {
+        String pass = JOptionPane.showInputDialog(null, "Introduzca la contraseña");
+        PreparedStatement pst = con.establecerConexion().prepareStatement(consulta);
+        pst.setString(1, pass); 
+        
+        ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) {
+            // Si hay resultados en el ResultSet, la contraseña es correcta
+            // Aquí puedes realizar alguna acción apropiada, como abrir una nueva ventana o mostrar un mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Contraseña correcta");
+        } else {
+            // Si no hay resultados en el ResultSet, la contraseña es incorrecta
+            // Aquí puedes mostrar un mensaje de error
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al ejecutar la consulta SQL: " + e.getMessage());
+    }
+}
+}
 

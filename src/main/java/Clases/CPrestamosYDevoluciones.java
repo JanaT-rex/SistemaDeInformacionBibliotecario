@@ -32,7 +32,7 @@ public class CPrestamosYDevoluciones {
     java.sql.Date fecha_devolucion = rs.getDate("fecha_devolucion");
     devolver.setDate(fecha_devolucion);
 } catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "No se puede ajustar la fecha: " + e.getMessage());
+ //   JOptionPane.showMessageDialog(null, "No se puede ajustar la fecha: " + e.getMessage());
 }
           
        
@@ -40,7 +40,7 @@ public class CPrestamosYDevoluciones {
             JOptionPane.showMessageDialog(null, "No se encontró el registro con el Id proporcionado");
         }
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error al buscar el registro, error: " + e.toString());
+     //  JOptionPane.showMessageDialog(null, "Error al buscar el registro solicitado");
     } finally {
         conexion.cerrarConexion();
     }

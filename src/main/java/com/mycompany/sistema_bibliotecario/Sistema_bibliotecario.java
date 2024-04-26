@@ -4,8 +4,9 @@ public class Sistema_bibliotecario {
 
     public static void main(String[] args) {
         //Lllamar el modulo de Login mediante POO 
-       Interfaz.All_Modulos login= new Interfaz.All_Modulos();
+       Interfaz.LOGIN login= new Interfaz.LOGIN();
         login.setVisible(true);
+        //  login.setVisible(false);
      
     }
 }

@@ -46,7 +46,7 @@ public class CLectores {
          }
          tabla_lectores.setModel(modelo);
      }catch(Exception e){
-         JOptionPane.showMessageDialog(null, "Error al mostrar datos del lector: "+e.toString());
+         JOptionPane.showMessageDialog(null, "Error al mostrar datos del lector");
               }
        finally {
            con.cerrarConexion();
@@ -67,7 +67,7 @@ public class CLectores {
      cs.execute();
            JOptionPane.showMessageDialog(null, "Se guardo el registro del lector");           
      }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar, error:" +e.toString());            
+            JOptionPane.showMessageDialog(null, "Error al guardar");            
      }
      
  }
@@ -102,7 +102,7 @@ public class CLectores {
         cs.execute();
      JOptionPane.showMessageDialog(null, "Se actualizo el registro correctamente");
     }catch (Exception e){
-           JOptionPane.showMessageDialog(null, "Error al actualizar el registro, error: " +e.toString());
+           JOptionPane.showMessageDialog(null, "Error al actualizar el registro");
     }
     finally{
         objetoConexion.cerrarConexion();
@@ -119,7 +119,7 @@ public class CLectores {
         JOptionPane.showMessageDialog(null, "Se elimino correctamente");
         
     }catch (Exception e){
-         JOptionPane.showMessageDialog(null, "Error al eliminar, error: " +e.toString()); 
+         JOptionPane.showMessageDialog(null, "Error al eliminar"); 
     }
     finally{
         conexion.cerrarConexion();
@@ -135,7 +135,7 @@ public class CLectores {
         JOptionPane.showMessageDialog(null, "Se encontro el lector correctamente");
         
     }catch (Exception e){
-         JOptionPane.showMessageDialog(null, "Error al buscar, error: " +e.toString()); 
+         JOptionPane.showMessageDialog(null, "Error al buscar"); 
     }
     finally{
         conexion.cerrarConexion();
@@ -178,7 +178,7 @@ public class CLectores {
                    JOptionPane.showMessageDialog(null, "No se encontró el lector con el nombre proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar al lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar al lector");
         } finally {
             conexion.cerrarConexion();
         }
@@ -221,7 +221,7 @@ public class CLectores {
                    JOptionPane.showMessageDialog(null, "No se encontró el lector con el apellido proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el lector");
         } finally {
             conexion.cerrarConexion();
         }
@@ -265,7 +265,7 @@ public class CLectores {
                    JOptionPane.showMessageDialog(null, "No se encontró el lector");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el lector");
         } finally {
             conexion.cerrarConexion();
         }
@@ -309,7 +309,7 @@ public class CLectores {
                    JOptionPane.showMessageDialog(null, "No se encontraron lectores");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar");
         } finally {
             conexion.cerrarConexion();
         }
@@ -353,7 +353,7 @@ public class CLectores {
                    JOptionPane.showMessageDialog(null, "No se encontraron lectores");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el lector");
         } finally {
             conexion.cerrarConexion();
         }
@@ -397,7 +397,7 @@ public class CLectores {
                    JOptionPane.showMessageDialog(null, "No se encontraron lectores");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el lector");
         } finally {
             conexion.cerrarConexion();
         }
@@ -440,7 +440,7 @@ public class CLectores {
                    JOptionPane.showMessageDialog(null, "No se encontró el lectro con el ID proporcionado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al buscar el lector, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar el lector");
         } finally {
             conexion.cerrarConexion();
         }

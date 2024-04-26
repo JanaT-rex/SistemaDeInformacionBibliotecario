@@ -154,6 +154,8 @@ if (login.iniciarSesion(usu, pwd)){
          this.setVisible(false);
 }else{
     JOptionPane.showMessageDialog(null, "El usuario o contraseña son incorrectos");
+    
+    login.limpiarLogin(usu, pwd);
 }
     }//GEN-LAST:event_btnLoginActionPerformed
 
