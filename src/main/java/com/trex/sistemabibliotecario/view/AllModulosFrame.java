@@ -1,4 +1,3 @@
-
 package com.trex.sistemabibliotecario.view;
 
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
@@ -10,6 +9,26 @@ import java.time.LocalDate;
 public class AllModulosFrame extends javax.swing.JFrame {
 
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
+    private javax.swing.JButton btnLectores;
+    private javax.swing.JButton btnLibros;
+    private javax.swing.JButton btnPrestamos;
+    private javax.swing.JButton btnRegistros;
+    private javax.swing.JButton btnUsuarios;
+    private javax.swing.JPanel cabecera;
+    private javax.swing.JLabel fechalbl;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel menu;
+    private javax.swing.JPanel ventanas;
     public AllModulosFrame() {
 
         initComponents();
@@ -29,7 +48,6 @@ public class AllModulosFrame extends javax.swing.JFrame {
     private void initStyles() {
         FlatCyanLightIJTheme.setup();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -423,28 +441,6 @@ public class AllModulosFrame extends javax.swing.JFrame {
         ventanas.revalidate();
         ventanas.repaint();
     }//GEN-LAST:event_btnRegistrosActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
-    private javax.swing.JButton btnLectores;
-    private javax.swing.JButton btnLibros;
-    private javax.swing.JButton btnPrestamos;
-    private javax.swing.JButton btnRegistros;
-    private javax.swing.JButton btnUsuarios;
-    private javax.swing.JPanel cabecera;
-    private javax.swing.JLabel fechalbl;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel menu;
-    private javax.swing.JPanel ventanas;
     // End of variables declaration//GEN-END:variables
 
 

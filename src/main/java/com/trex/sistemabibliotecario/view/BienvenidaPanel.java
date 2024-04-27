@@ -5,7 +5,6 @@
 package com.trex.sistemabibliotecario.view;
 
 /**
- *
  * @author HP
  */
 public class BienvenidaPanel extends javax.swing.JPanel {
@@ -29,13 +28,13 @@ public class BienvenidaPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addGap(0, 400, Short.MAX_VALUE)
+                                 );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addGap(0, 300, Short.MAX_VALUE)
+                               );
     }// </editor-fold>//GEN-END:initComponents
 
 

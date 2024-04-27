@@ -1,4 +1,3 @@
-
 package com.trex.sistemabibliotecario.view;
 
 
@@ -8,6 +7,25 @@ import Clases.PrestamosYDevoluciones;
 
 public class PrestamosPanel extends javax.swing.JPanel {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
+    private javax.swing.JPanel botones;
+    private javax.swing.JButton btnBuscarPrestamo;
+    private com.toedter.calendar.JDateChooser devolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private com.toedter.calendar.JDateChooser prestado;
+    private javax.swing.JButton prestarYagregar;
+    private javax.swing.JButton regresar;
+    private javax.swing.JTextField txtAlumno;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtIdLibro;
     public PrestamosPanel() {
         initComponents();
 
@@ -244,26 +262,5 @@ public class PrestamosPanel extends javax.swing.JPanel {
         DL.Limpiar(txtId, txtAlumno, txtIdLibro, prestado, devolver);
 
     }//GEN-LAST:event_regresarActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
-    private javax.swing.JPanel botones;
-    private javax.swing.JButton btnBuscarPrestamo;
-    private com.toedter.calendar.JDateChooser devolver;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private com.toedter.calendar.JDateChooser prestado;
-    private javax.swing.JButton prestarYagregar;
-    private javax.swing.JButton regresar;
-    private javax.swing.JTextField txtAlumno;
-    private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtIdLibro;
     // End of variables declaration//GEN-END:variables
 }

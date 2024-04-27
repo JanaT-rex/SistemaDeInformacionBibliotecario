@@ -1,4 +1,3 @@
-
 package com.trex.sistemabibliotecario.view;
 
 import java.awt.BorderLayout;
@@ -6,10 +5,20 @@ import java.awt.BorderLayout;
 
 public class RegistrosPanel extends javax.swing.JPanel {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Adevoluciones;
+    private javax.swing.JButton Aprestamos;
+    private javax.swing.JPanel background;
+    private javax.swing.JPanel botones1;
+    private javax.swing.JPanel contenido;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton prestamos;
     public RegistrosPanel() {
         initComponents();
-    
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -26,13 +35,13 @@ public class RegistrosPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+                jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                   .addGap(0, 100, Short.MAX_VALUE)
+                                              );
         jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+                jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                   .addGap(0, 100, Short.MAX_VALUE)
+                                            );
 
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusTraversalPolicyProvider(true);
@@ -85,25 +94,25 @@ public class RegistrosPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout botones1Layout = new javax.swing.GroupLayout(botones1);
         botones1.setLayout(botones1Layout);
         botones1Layout.setHorizontalGroup(
-            botones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botones1Layout.createSequentialGroup()
-                .addComponent(prestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Aprestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Adevoluciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
-        );
+                botones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                              .addGroup(botones1Layout.createSequentialGroup()
+                                                      .addComponent(prestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                      .addComponent(Aprestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                      .addComponent(Adevoluciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                      .addGap(12, 12, 12))
+                                         );
         botones1Layout.setVerticalGroup(
-            botones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botones1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(botones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(prestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Aprestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Adevoluciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                botones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                              .addGroup(botones1Layout.createSequentialGroup()
+                                                      .addContainerGap()
+                                                      .addGroup(botones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                              .addComponent(prestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                              .addComponent(Aprestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                              .addComponent(Adevoluciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                      .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                       );
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
         contenido.setMinimumSize(new java.awt.Dimension(738, 400));
@@ -113,32 +122,32 @@ public class RegistrosPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(botones1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(contenido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(backgroundLayout.createSequentialGroup()
+                                                          .addContainerGap()
+                                                          .addComponent(botones1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+                                                          .addContainerGap())
+                                .addComponent(contenido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                           );
         backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addComponent(botones1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+                backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(backgroundLayout.createSequentialGroup()
+                                                          .addComponent(botones1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                          .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                          .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                          .addContainerGap())
+                                         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                 );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                               );
 
         getAccessibleContext().setAccessibleName("");
         getAccessibleContext().setAccessibleDescription("");
@@ -146,10 +155,10 @@ public class RegistrosPanel extends javax.swing.JPanel {
 
     private void prestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestamosActionPerformed
 
-    CRUD_prestamos P= new CRUD_prestamos();
+        CRUD_prestamos P = new CRUD_prestamos();
         P.setSize(738, 400);
-        P.setLocation(0,0);
-        
+        P.setLocation(0, 0);
+
         contenido.removeAll();
         contenido.add(P, BorderLayout.CENTER);
         contenido.revalidate();
@@ -157,10 +166,10 @@ public class RegistrosPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_prestamosActionPerformed
 
     private void AprestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AprestamosActionPerformed
-  ActividadPrestamosPanel P= new ActividadPrestamosPanel();
+        ActividadPrestamosPanel P = new ActividadPrestamosPanel();
         P.setSize(738, 400);
-        P.setLocation(0,0);
-        
+        P.setLocation(0, 0);
+
         contenido.removeAll();
         contenido.add(P, BorderLayout.CENTER);
         contenido.revalidate();
@@ -168,25 +177,14 @@ public class RegistrosPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_AprestamosActionPerformed
 
     private void AdevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdevolucionesActionPerformed
-  ActividadDevolucionesPanel P= new ActividadDevolucionesPanel();
+        ActividadDevolucionesPanel P = new ActividadDevolucionesPanel();
         P.setSize(738, 400);
-        P.setLocation(0,0);
-        
+        P.setLocation(0, 0);
+
         contenido.removeAll();
         contenido.add(P, BorderLayout.CENTER);
         contenido.revalidate();
-        contenido.repaint();      
+        contenido.repaint();
     }//GEN-LAST:event_AdevolucionesActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Adevoluciones;
-    private javax.swing.JButton Aprestamos;
-    private javax.swing.JPanel background;
-    private javax.swing.JPanel botones1;
-    private javax.swing.JPanel contenido;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton prestamos;
     // End of variables declaration//GEN-END:variables
 }

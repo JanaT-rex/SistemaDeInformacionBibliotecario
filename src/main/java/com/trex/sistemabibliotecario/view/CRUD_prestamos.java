@@ -1,4 +1,3 @@
-
 package com.trex.sistemabibliotecario.view;
 
 import Clases.Prestamos;
@@ -6,15 +5,21 @@ import Clases.Prestamos;
 public class CRUD_prestamos extends javax.swing.JPanel {
 
 
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel acciones;
+    private javax.swing.JPanel content;
+    private javax.swing.JButton eliminar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton modificar;
+    private javax.swing.JTable tabla_info;
     public CRUD_prestamos() {
         initComponents();
-        
-        
-        Prestamos MT= new Prestamos();
+
+
+        Prestamos MT = new Prestamos();
         MT.mostrar(tabla_info);
-        
-        
+
+
     }
 
     @SuppressWarnings("unchecked")
@@ -62,15 +67,15 @@ public class CRUD_prestamos extends javax.swing.JPanel {
 
         tabla_info.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         tabla_info.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
+                new Object[][]{
+                        {},
+                        {},
+                        {},
+                        {}
+                },
+                new String[]{
 
-            }
+                }
         ));
         tabla_info.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,62 +89,53 @@ public class CRUD_prestamos extends javax.swing.JPanel {
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(acciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(contentLayout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
-                .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
-        );
+                contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                             .addGroup(contentLayout.createSequentialGroup()
+                                                    .addContainerGap()
+                                                    .addComponent(acciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                             .addGroup(contentLayout.createSequentialGroup()
+                                                    .addContainerGap(138, Short.MAX_VALUE)
+                                                    .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(75, 75, 75)
+                                                    .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(105, 105, 105))
+                                        );
         contentLayout.setVerticalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(acciones, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+                contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                             .addGroup(contentLayout.createSequentialGroup()
+                                                    .addContainerGap()
+                                                    .addComponent(acciones, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                           .addComponent(eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                                                                           .addComponent(modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addContainerGap())
+                                      );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                 );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                               );
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabla_infoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_infoMouseClicked
-     
+
     }//GEN-LAST:event_tabla_infoMouseClicked
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-     Prestamos DT= new Prestamos();
-     DT.eliminarPrestamoTabla(tabla_info);
+        Prestamos DT = new Prestamos();
+        DT.eliminarPrestamoTabla(tabla_info);
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-     Prestamos EP= new Prestamos();
-      EP.editarPrestamoTabla(tabla_info);
+        Prestamos EP = new Prestamos();
+        EP.editarPrestamoTabla(tabla_info);
     }//GEN-LAST:event_modificarActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel acciones;
-    private javax.swing.JPanel content;
-    private javax.swing.JButton eliminar;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton modificar;
-    private javax.swing.JTable tabla_info;
     // End of variables declaration//GEN-END:variables
 }

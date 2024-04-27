@@ -1,13 +1,32 @@
-
 package com.trex.sistemabibliotecario.view;
 
 public class UsuariosPanel extends javax.swing.JPanel {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregar;
+    private javax.swing.JPanel botones;
+    private javax.swing.JButton btnBuscarId;
+    private javax.swing.JComboBox<String> cbTurno;
+    private javax.swing.JButton eliminar;
+    private javax.swing.JPanel fondo;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton modificar;
+    private javax.swing.JTable tabla_usuarios;
+    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNombre;
     public UsuariosPanel() {
         initComponents();
-          Clases.CUsuarios MU= new Clases.CUsuarios();
-MU.Mostrar(tabla_usuarios);
+        Clases.CUsuarios MU = new Clases.CUsuarios();
+        MU.Mostrar(tabla_usuarios);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,7 +72,7 @@ MU.Mostrar(tabla_usuarios);
 
         txtContraseña.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        cbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TURNO", "Matutino", "Vespertino" }));
+        cbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"TURNO", "Matutino", "Vespertino"}));
         cbTurno.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         cbTurno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,15 +115,15 @@ MU.Mostrar(tabla_usuarios);
 
         tabla_usuarios.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         tabla_usuarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
+                new Object[][]{
+                        {},
+                        {},
+                        {},
+                        {}
+                },
+                new String[]{
 
-            }
+                }
         ));
         tabla_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -151,165 +170,144 @@ MU.Mostrar(tabla_usuarios);
         javax.swing.GroupLayout botonesLayout = new javax.swing.GroupLayout(botones);
         botones.setLayout(botonesLayout);
         botonesLayout.setHorizontalGroup(
-            botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonesLayout.createSequentialGroup()
-                .addComponent(agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                .addGap(25, 25, 25)
-                .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                .addGap(26, 26, 26)
-                .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-        );
+                botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                             .addGroup(botonesLayout.createSequentialGroup()
+                                                    .addComponent(agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                                    .addGap(25, 25, 25)
+                                                    .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                                    .addGap(26, 26, 26)
+                                                    .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                        );
         botonesLayout.setVerticalGroup(
-            botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+                botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                             .addGroup(botonesLayout.createSequentialGroup()
+                                                    .addContainerGap()
+                                                    .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                           .addComponent(agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                           .addComponent(modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                           .addComponent(eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                                                    .addContainerGap())
+                                      );
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5)
-                            .addComponent(cbTurno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtId))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscarId)
-                            .addComponent(jButton13))
-                        .addGap(39, 39, 39)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(txtNombre)
-                            .addComponent(txtContraseña))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12)))
-                .addGap(41, 41, 41))
-        );
+                fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addGroup(fondoLayout.createSequentialGroup()
+                                                .addGap(36, 36, 36)
+                                                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                     .addComponent(botones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+                                                                     .addGroup(fondoLayout.createSequentialGroup()
+                                                                                          .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                               .addComponent(jLabel1)
+                                                                                                               .addComponent(jLabel5)
+                                                                                                               .addComponent(cbTurno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                               .addComponent(txtId))
+                                                                                          .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                          .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                               .addComponent(btnBuscarId)
+                                                                                                               .addComponent(jButton13))
+                                                                                          .addGap(39, 39, 39)
+                                                                                          .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                               .addComponent(jLabel2)
+                                                                                                               .addComponent(jLabel6)
+                                                                                                               .addComponent(txtNombre)
+                                                                                                               .addComponent(txtContraseña))
+                                                                                          .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                          .addComponent(jButton12)))
+                                                .addGap(41, 41, 41))
+                                      );
         fondoLayout.setVerticalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton13)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBuscarId)
-                            .addGroup(fondoLayout.createSequentialGroup()
-                                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton12))
-                        .addGap(18, 18, 18)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(59, 59, 59)
-                .addComponent(botones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
-        );
+                fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addGroup(fondoLayout.createSequentialGroup()
+                                                .addGap(29, 29, 29)
+                                                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                     .addComponent(jButton13)
+                                                                     .addGroup(fondoLayout.createSequentialGroup()
+                                                                                          .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                               .addComponent(btnBuscarId)
+                                                                                                               .addGroup(fondoLayout.createSequentialGroup()
+                                                                                                                                    .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                         .addComponent(jLabel2)
+                                                                                                                                                         .addComponent(jLabel1))
+                                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                    .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                         .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                               .addComponent(jButton12))
+                                                                                          .addGap(18, 18, 18)
+                                                                                          .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                               .addComponent(jLabel6)
+                                                                                                               .addComponent(jLabel5))
+                                                                                          .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                          .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                               .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                               .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGap(59, 59, 59)
+                                                .addComponent(botones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                                .addGap(40, 40, 40))
+                                    );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                 );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                               );
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTurnoActionPerformed
-       
+
     }//GEN-LAST:event_cbTurnoActionPerformed
 
     private void btnBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIdActionPerformed
-        Clases.CUsuarios BU= new Clases.CUsuarios();
+        Clases.CUsuarios BU = new Clases.CUsuarios();
         BU.BuscarUsuario(txtId, tabla_usuarios);
         BU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
     }//GEN-LAST:event_btnBuscarIdActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        Clases.CUsuarios BNU= new Clases.CUsuarios();
+        Clases.CUsuarios BNU = new Clases.CUsuarios();
         BNU.BuscarNombreUsuario(txtNombre, tabla_usuarios);
         BNU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        Clases.CUsuarios BTU= new Clases.CUsuarios();
+        Clases.CUsuarios BTU = new Clases.CUsuarios();
         BTU.BuscarTurnoUsuario(cbTurno, tabla_usuarios);
         BTU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void tabla_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_usuariosMouseClicked
-        Clases.CUsuarios SU= new Clases.CUsuarios();
+        Clases.CUsuarios SU = new Clases.CUsuarios();
         SU.SeleccionarUsuario(tabla_usuarios, txtId, txtNombre, txtContraseña, cbTurno);
     }//GEN-LAST:event_tabla_usuariosMouseClicked
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-Clases.CUsuarios AU= new Clases.CUsuarios ();
-AU.agregarUsuario(txtNombre, txtContraseña, cbTurno);
-AU.mostrarUsuAgregado(tabla_usuarios);   
-AU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
+        Clases.CUsuarios AU = new Clases.CUsuarios();
+        AU.agregarUsuario(txtNombre, txtContraseña, cbTurno);
+        AU.mostrarUsuAgregado(tabla_usuarios);
+        AU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
     }//GEN-LAST:event_agregarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-Clases.CUsuarios AU= new Clases.CUsuarios();
-AU.ModificarUsuario(txtId, txtNombre, txtContraseña, cbTurno, tabla_usuarios);    
-AU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
+        Clases.CUsuarios AU = new Clases.CUsuarios();
+        AU.ModificarUsuario(txtId, txtNombre, txtContraseña, cbTurno, tabla_usuarios);
+        AU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
     }//GEN-LAST:event_modificarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-Clases.CUsuarios EU= new Clases.CUsuarios();
-EU.EliminarUsuario(txtId);
-EU.mostrarUsuAgregado(tabla_usuarios);
-EU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
+        Clases.CUsuarios EU = new Clases.CUsuarios();
+        EU.EliminarUsuario(txtId);
+        EU.mostrarUsuAgregado(tabla_usuarios);
+        EU.Limpiar(txtId, txtNombre, cbTurno, txtContraseña);
     }//GEN-LAST:event_eliminarActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregar;
-    private javax.swing.JPanel botones;
-    private javax.swing.JButton btnBuscarId;
-    private javax.swing.JComboBox<String> cbTurno;
-    private javax.swing.JButton eliminar;
-    private javax.swing.JPanel fondo;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton modificar;
-    private javax.swing.JTable tabla_usuarios;
-    private javax.swing.JTextField txtContraseña;
-    private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
