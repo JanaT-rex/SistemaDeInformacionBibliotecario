@@ -135,6 +135,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+nbactions.xml
 
 ### Windows ###
 # Windows thumbnail cache files
