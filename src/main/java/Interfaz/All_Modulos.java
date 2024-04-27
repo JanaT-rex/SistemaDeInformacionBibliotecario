@@ -24,6 +24,7 @@ public class All_Modulos extends javax.swing.JFrame {
     public All_Modulos() {
         
         initComponents();
+        bienvenida();
         InitStyles();
    LocalDate now = LocalDate.now();
 int year = now.getYear();
@@ -43,7 +44,16 @@ fechalbl.setText(semana[diaSemana - 1] + " " + dia + " de " + meses[month - 1] +
    
 
     @SuppressWarnings("unchecked")
-   
+   public void bienvenida (){
+         Interfaz.bienvenida B= new Interfaz.bienvenida();
+        B.setSize(738, 450);
+        B.setLocation(0,0);
+        
+       ventanas.removeAll();
+        ventanas.add(B, BorderLayout.CENTER);
+        ventanas.revalidate();
+        ventanas.repaint();
+   }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

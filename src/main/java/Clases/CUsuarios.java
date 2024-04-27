@@ -336,5 +336,8 @@ public void limpiarLogin (JTextField usu, JPasswordField pwd){
         JOptionPane.showMessageDialog(null, "Error al ejecutar la consulta SQL: " + e.getMessage());
     }
 }
-}
+  
+    }
+
+
 

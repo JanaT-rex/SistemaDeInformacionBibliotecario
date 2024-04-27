@@ -147,6 +147,6 @@ public class CRUD_prestamos extends javax.swing.JPanel {
     private javax.swing.JButton eliminar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton modificar;
-    private javax.swing.JTable tabla_info;
+    private static javax.swing.JTable tabla_info;
     // End of variables declaration//GEN-END:variables
 }

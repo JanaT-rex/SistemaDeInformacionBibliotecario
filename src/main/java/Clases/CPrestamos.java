@@ -700,4 +700,23 @@ public void editarPrestamoTabla (JTable tabla_info) {
         conex.cerrarConexion();
     }
 }
+public void idAsignado() {
+    Clases.conexion_bd con = new Clases.conexion_bd();
+    String idQuery = "SELECT id_prestamo FROM prestamos ORDER BY id_prestamo DESC LIMIT 1;"; // Solo seleccionamos el id_prestamo
+    try {
+        Statement st = con.establecerConexion().createStatement();
+        ResultSet rs = st.executeQuery(idQuery);
+        if (rs.next()) {
+            int idPrestamo = rs.getInt("id_prestamo"); // Obtener el valor del ID de la columna "id_prestamo"
+            JOptionPane.showMessageDialog(null, "El id del prestamo es: " + idPrestamo);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontraron prestamos.");
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al mostrar el id: " + e.getMessage());
+    } finally {
+        con.cerrarConexion(); // Cierra la conexión después de usarla
+    }
+}
+
 }   

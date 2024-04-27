@@ -229,6 +229,7 @@ Clases.CPrestamos PL= new Clases.CPrestamos();
 NP.prestamo(txtAlumno, txtIdLibro, prestado);
 PL.Prestar(txtAlumno, txtIdLibro, prestado, devolver);
 PL.Limpiar(txtId, txtAlumno, txtIdLibro, prestado, devolver);
+PL.idAsignado();
     }//GEN-LAST:event_prestarYagregarActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed

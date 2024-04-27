@@ -231,4 +231,5 @@ public class CActividades {
            JOptionPane.showMessageDialog(null, "Operación abortada"); 
             }
 }
+ 
 }
